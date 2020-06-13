@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand"><img class="imgLogo" src="../../../../assets/images/Computek_logo2.jpg"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active btn"  data-toggle="modal" data-target="#myModalAddEditComponent"><a >{{ 'AddUser' | translate }}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <div class="navbar-header">
+                    <a class="btn" data-toggle="control-sidebar" (click)="ChangeLanguage()">{{Language=="ENG"?"ENG":"AR"}}</a>
+                </div>
+              <li class="btn" (click)=LogOut()><a><span class="glyphicon glyphicon-log-in"></span>{{ 'LogOut' | translate }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>

@@ -1,0 +1,97 @@
+<div class="contentCustom content-wrapper">
+    <section class="content">
+        <section class="contentheader">
+            <h1>
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <button class="pull-right" (click)="closeModal()">
+                        <a class="fa fa-times"></a>
+                    </button>
+                    <li>
+            </ol>
+        </section>
+        <form [formGroup]="form">
+            <fieldset>
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="first_name">
+                                        {{ 'Firstname' | translate }}
+                                        <span *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                                            <span class="errors" *ngIf="f.first_name.errors.required" data-toggle="tooltip" data-placement="top" title="كود المسنخدم">
+                                                {{ 'required' | translate }}
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <input formControlName="first_name" [(ngModel)]="User.first_name" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last_name">
+                                        {{ 'Lastname' | translate }}
+                                        <span *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                                            <span class="errors" *ngIf="f.last_name.errors.required" data-toggle="tooltip" data-placement="top">
+                                                {{ 'required' | translate }}
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <input formControlName="last_name" [(ngModel)]="User.last_name" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">
+                                        {{ 'Email' | translate }}
+                                        <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <span class="errors" *ngIf="f.email.errors.required" data-toggle="tooltip" data-placement="top">
+                                                {{ 'EmailIsNotValid' | translate }}
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <input formControlName="email" [(ngModel)]="User.email" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        required placeholder="aahmed.abdo15@gmail.com" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="avatar">
+                                        {{ 'Photo' | translate }}
+                                        <span *ngIf="submitted && f.avatar.errors" class="invalid-feedback">
+                                            <span class="errors" *ngIf="f.avatar.errors.required" data-toggle="tooltip" data-placement="top">
+                                                {{ 'required' | translate }}
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <img id="USer_Side_Bar_Image" [src]="imgURL" style="width: 100px;width: 200px;" />
+                                            <input formControlName="avatar" #file [(ngModel)]="User.avatar" type="file" (change)="handleUpload(file.files)" required
+                                            /> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+            <br />
+            <div class="box-footer">
+                <div class="text-center">
+                    <button class="btn btn-primary btn-sx" *ngIf="!ShowBtn" (click)="onRegister()" type="submit">{{ 'Add' | translate }}</button>
+                    <button class="btn btn-danger btn-sx" *ngIf="ShowBtn" (click)="CancelUpdateUser()" type="submit">{{ 'Cancel' | translate }}</button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success btn-sx" *ngIf="ShowBtn" (click)="UpdateUser()" type="submit">{{ 'Edit' | translate }}</button>
+                </div>
+            </div>
+            <br />
+        </form>
+    </section>
+</div>
